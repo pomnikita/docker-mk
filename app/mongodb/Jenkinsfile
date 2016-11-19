@@ -27,7 +27,9 @@ stage 'Push Image to DockerHub'
       pkg.push 'latest'
     }
 
-//Дописываем stage с деплоем сразу после комментария
+    stage 'Deploy to staging'
+      sh "DOCKER_CERT_PATH='/.docker' docker-compose -H ${staging_docker}:2376 -f app/docker-compose.yml pull mongodb"
+      sh "DOCKER_CERT_PATH='/.docker' docker-compose -H ${staging_docker}:2376 -f app/docker-compose.yml up -d mongodb"
 
 }
 }
