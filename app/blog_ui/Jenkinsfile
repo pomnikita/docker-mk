@@ -24,10 +24,5 @@ node('docker') {
         pkg.push "${id}"
         pkg.push 'latest'
       }
-
-    //Дописываем stage с деплоем сразу после комментария
-    stage 'Deploy to staging'
-      sh "DOCKER_CERT_PATH='/.docker' docker-compose -H ${staging_docker}:2376 -f app/docker-compose.yml pull blog_ui"
-      sh "DOCKER_CERT_PATH='/.docker' docker-compose -H ${staging_docker}:2376 -f app/docker-compose.yml up -d blog_ui" 
   }
 }
