@@ -1,4 +1,4 @@
-FROM CHANGEME/ubuntu:16.04
+FROM pomnikita/ubuntu:16.04
 
 # skip installing gem documentation
 RUN mkdir -p /usr/local/etc \
@@ -67,4 +67,3 @@ ONBUILD RUN bundle install
 ONBUILD COPY . /usr/src/app
 
 CMD [ "irb" ]
-
