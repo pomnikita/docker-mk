@@ -16,7 +16,7 @@ services:
     volumes:
       - jenkins_slave_home:/var/jenkins_home
     environment:
-      - JENKINS_URL=http://jenkins-master:8080/36113e7247c59860cba5a6d69e95a4c1ff609dc79f4637dc7840b5fc5e420ad2/slave1
+      - JENKINS_URL=http://jenkins-master:8080 36113e7247c59860cba5a6d69e95a4c1ff609dc79f4637dc7840b5fc5e420ad2 slave1
 volumes:
   jenkins_home:
     driver: local
