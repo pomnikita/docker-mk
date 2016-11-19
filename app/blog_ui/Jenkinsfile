@@ -24,5 +24,8 @@ node('docker') {
         pkg.push "${id}"
         pkg.push 'latest'
       }
+
+    stage 'Deploy to staging'
+      sh "DOCKER_CERT_PATH='/.docker' docker-compose -H ${staging_docker}:2376 -f app/docker-compose.yml pull blog_ui"
   }
 }
